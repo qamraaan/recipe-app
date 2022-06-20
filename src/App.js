@@ -67,6 +67,7 @@ const App = () =>{
     </div>
     <div className='footer'>
       <h3>Developed by Mohammad Kamran</h3>
+      <p>&copy; All Rights Reserved 2022</p>
     </div>
     </div>
   );
