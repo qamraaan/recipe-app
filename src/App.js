@@ -64,7 +64,7 @@ const App = () =>{
       ))}
     </div>
     <div className='footer'>
-      <h1>Developed by Q</h1>
+      <h1>Developed by Mohammad Kamran</h1>
     </div>
     </div>
   );
