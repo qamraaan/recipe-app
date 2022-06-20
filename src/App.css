@@ -27,14 +27,14 @@ input{
     grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
     grid-gap: 1rem;
     padding: 20px;
+    min-height: 80vh;
 }
 .header{
-    height: 10vh;
-    width: 100%;
+
     background-color: #49ac3b;
     margin-bottom: 10px;
     text-align: center;
-    padding: 10px;
+    padding: 2px;
     color: wheat;
 }
 .footer{
@@ -59,6 +59,11 @@ p{
 }
 .not-found{
     color: red;
+    font-size: xx-large;
+    text-align: center;
+}
+.loading{
+    color: #49ac3b;
     font-size: xx-large;
     text-align: center;
 }
