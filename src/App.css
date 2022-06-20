@@ -8,6 +8,9 @@
     justify-content: center;
     align-items: center;
 }
+input{
+    outline: none;
+}
 .search-bar{
     width: 50%;
     border: 0;
@@ -20,7 +23,35 @@
     color: white;
 }
 .recipes{
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    grid-gap: 1rem;
+    padding: 20px;
+}
+.header{
+    height: 10vh;
+    width: 100%;
+    background-color: #49ac3b;
+    margin-bottom: 10px;
+    text-align: center;
+    color: wheat;
+}
+.footer{
+    height: 10vh;
+    width: 100%;
+    background-color: #49ac3b;
+    margin-top: 10px;
+    text-align: center;
+    color: wheat;
+}
+h2{
+    text-align: center;
+}
+
+ol{
+    text-align: left;
+}
+
+p{
+    text-align: center;
 }

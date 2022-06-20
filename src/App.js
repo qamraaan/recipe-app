@@ -36,6 +36,9 @@ const App = () =>{
   };
   return (
     <div className='App' >
+      <div className='header'>
+          <h1>Culinary Recipe App</h1>
+      </div>
       <form onSubmit = {getSearch} className='search-form '>
         <input 
         className = "search-bar"
@@ -55,10 +58,13 @@ const App = () =>{
         <Recipe 
         key = {recipe.recipe.index}
         title = {recipe.recipe.label}
-        calories = {recipe.recipe.calories}
         image = {recipe.recipe.image}
+        calories = {recipe.recipe.calories}
         ingredients = {recipe.recipe.ingredients}/>
       ))}
+    </div>
+    <div className='footer'>
+      <h1>Developed by Q</h1>
     </div>
     </div>
   );
