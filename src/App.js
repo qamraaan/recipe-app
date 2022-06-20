@@ -44,6 +44,7 @@ const App = () =>{
         className = "search-bar"
         placeholder = "Search for any delicacy!" 
         type = "text"
+        required
         value = {search} 
         onChange = {updateSearch}></input>
         <button 
@@ -54,6 +55,7 @@ const App = () =>{
       </form>
       {/* <h1 onClick={() => setCounter(counter+1)}>{counter}</h1> */}
       <div className='recipes'>
+      {recipes.length==0 &&(<div className='not-found'>No recipes found</div>)}
       {recipes.map(recipe =>(
         <Recipe 
         key = {recipe.recipe.index}
@@ -64,7 +66,7 @@ const App = () =>{
       ))}
     </div>
     <div className='footer'>
-      <h1>Developed by Mohammad Kamran</h1>
+      <h3>Developed by Mohammad Kamran</h3>
     </div>
     </div>
   );

@@ -34,6 +34,7 @@ input{
     background-color: #49ac3b;
     margin-bottom: 10px;
     text-align: center;
+    padding: 10px;
     color: wheat;
 }
 .footer{
@@ -43,6 +44,7 @@ input{
     margin-top: 10px;
     text-align: center;
     color: wheat;
+    padding: 20px;
 }
 h2{
     text-align: center;
@@ -53,5 +55,10 @@ ol{
 }
 
 p{
+    text-align: center;
+}
+.not-found{
+    color: red;
+    font-size: xx-large;
     text-align: center;
 }
