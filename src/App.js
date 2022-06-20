@@ -8,10 +8,11 @@ const App = () =>{
   const APP_KEY = "8170b36767135285da25268f4aaf60e4";
 
   // const [counter, setCounter] = useState(0);
-  const [recipes, setRecipes] = useState([]);
+  const [recipes, setRecipes] = useState(null);
   const [search, setSearch] = useState("");
   const [query, setQuery] = useState('chicken');
   const [loader, setLoader] = useState(false);
+  const [noRecipe, setNoRecipe] = useState(false);
 
   useEffect(()=>{
     getRecipes();
@@ -21,12 +22,17 @@ const App = () =>{
   const getRecipes = async ()=>{
   setLoader(true);
   const response = await fetch(`https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`);
-  if(response){
-    setLoader(false)
-  }
   const data = await response.json();
-  setRecipes(data.hits);
-  console.log(data.hits);
+  if(data.hits.length === 0){
+    setLoader(false)
+    setNoRecipe(true);
+    setRecipes(null);
+  }
+  else{
+    setLoader(false)
+    setNoRecipe(false);
+    setRecipes(data.hits);
+  }
   };
 
   const updateSearch = e =>{
@@ -60,16 +66,17 @@ const App = () =>{
       </form>
       {/* <h1 onClick={() => setCounter(counter+1)}>{counter}</h1> */}
       <div className='recipes'>
-      {loader && (<div className='loading'>Loading...</div>)}
+      {loader && (<div className='loading'><div class="lds-ripple"><div></div><div></div></div></div>)}
       {/* {!loader && recipes.length==0 &&(<div className='not-found'>Oops! No recipes found</div>)} */}
-      {!loader && recipes.length>0 ? (recipes.map(recipe =>(
+      {!loader && recipes && (recipes.map(recipe =>(
         <Recipe 
         key = {recipe.recipe.index}
         title = {recipe.recipe.label}
         image = {recipe.recipe.image}
         calories = {recipe.recipe.calories}
         ingredients = {recipe.recipe.ingredients}/>
-      ))): (<div className='not-found'>Oops! No recipes found</div>)}
+      )))}
+      {!loader && noRecipe && (<div className='not-found'>Oops! No recipes found</div>)}
     </div>
     <div className='footer'>
       <h3>Developed by Mohammad Kamran</h3>
